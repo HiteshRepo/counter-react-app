@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# Project Title
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple react application for practice.
 
-## Available Scripts
+## Learnings
 
-In the project directory, you can run:
+1. React is a library unlike Angular which is a framework.
+2. A react app is a tree of components, each component is basically a class [unless it is a Stateless-Functional-Component], with state and render-function.
+3. Additionaly a react component has access to props from parent component and lifecycle hooks.
+4. State is local to component, while props are global to a tree/sub-tree.
+5. React does not directly manipulate DOM unlike vanila-js. It keeps a lightweight representation of DOM [lets say a virtual DOM]. On change in virtual DOM, it syncs up the original DOM.
+6. Uses Babel to compile 'jsx' code to 'create-dom-elements'.
+7. Render multiple elements in -> wrap within a 'div' / 'React.Fragment'.
+8. Bind functions to 'this'
+   i. using constructors:
+   ```
+       constructor() {
+           super();
+           this.<function-name>.bind(this);
+       }
+       <function-name>() {
+           //do something
+       }
+   ```
+   ii. use arrow-functions:
+   ```
+       <function-name> = () => {
+           //do something
+       }
+   ```
+9. Updating state
+   ```
+   state = {
+       count: 0
+   }
+   ```
+   i. wrong way
+   ```
+       this.state.count++
+   ```
+   ii. correct way
+   ```
+       const newCount = 1
+       this.setState({count : newCount})
+   ```
+10. Rendering lists
+    unlike angular, react does not have directives like ng-for.
+    so lists can be rendered as below:
 
-### `npm start`
+    ```
+        list = ['Mango', 'Apple', 'Dates', 'Fig']
+        render() {
+            return (
+                <ul>
+                this.list.map(item => <li>{item}</li>)
+                </ul>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+            );
+        }
+    ```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+11. Conditional rendering
 
-### `npm test`
+    ```
+        list = ['Mango', 'Apple', 'Dates', 'Fig']
+        render() {
+            return (
+                {this.list.length === 0} ? <p>Please add some fruits.</p> : {this.list}
+            );
+        }
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+12. Handling evvents
 
-### `npm run build`
+    ```
+        handleClick = () => {
+            console.log("hanndling click event.")
+        }
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+        render() {
+            return (
+                <button onClick={this.handleClick}>Click</button>
+            );
+        }
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+13. Pass Data via components:
+    i. if data needs to be passed from a node-component to its sub-node-component(s) -> use props.
+    ii. if data needs to be passed in same level, then the state needs to be moved to parent level, as data cannot be passed on same level.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+14. Raise and handle events:
+    In order for sub-component to execute a function present in its parent component:
+    i. parent component needs to pass functions via props, for example : <Counter onReset={this.handleReset} />
+    ii. child component needs to raise the event passed via props from parent component, for example : <button onClick={this.props.onReset}>Click</button>
 
-### `npm run eject`
+15. Multiple components in Sync:
+    i. achieved via props and hooks.
+    ii. controlled-component concept.
+    iii. state of a component is completely private to itself and cannot be manipulated by its parent or any other component.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+16. Functional components:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+17. Lifecycle hooks:
+    broadly classified under 3 phases:
+    i. Mount : constructor, render, componentDidMount
+    ii. Update : render, componentDidUpdate
+    iii. Unmount : componentWillUnmount
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Acknowledgments
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Mosh Hamedani
