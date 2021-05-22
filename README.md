@@ -107,6 +107,10 @@ Simple react application for practice.
     ii. Update : render, componentDidUpdate
     iii. Unmount : componentWillUnmount
 
+## Screen cast
+
+    https://github.com/HiteshRepo/counter-react-app/blob/master/extras/react-app.gif
+
 ## Acknowledgments
 
 - Mosh Hamedani
