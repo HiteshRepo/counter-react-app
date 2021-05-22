@@ -99,6 +99,7 @@ Simple react application for practice.
     iii. state of a component is completely private to itself and cannot be manipulated by its parent or any other component.
 
 16. Functional components:
+    https://github.com/HiteshRepo/counter-react-app/blob/master/src/components/navbar.jsx#L2-L16
 
 17. Lifecycle hooks:
     broadly classified under 3 phases:
