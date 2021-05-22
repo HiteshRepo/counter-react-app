@@ -109,7 +109,7 @@ Simple react application for practice.
 
 ## Screen cast
 
-    ![Alt Text](https://github.com/HiteshRepo/counter-react-app/blob/master/extras/react-app.gif)
+![Alt Text](https://github.com/HiteshRepo/counter-react-app/blob/master/extras/react-app.gif)
 
 ## Acknowledgments
 
